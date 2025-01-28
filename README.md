@@ -33,7 +33,6 @@ We test these predictions using optogenetics and confirm that GABAergic neurons 
 ### Code Author ###
 
 Saeed Farjami (University of Exeter)
-Email: s.farjami@exeter.ac.uk
 
 
 ### Summary ###
