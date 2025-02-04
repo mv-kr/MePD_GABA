@@ -1,6 +1,6 @@
 This repository consists of the code for data analysis and computational modelling carried out in the manuscript:
 
-**Amygdala GABA Neurons: Gatekeepers of Stress and Reproduction**
+## Amygdala GABA Neurons: Gatekeepers of Stress and Reproduction ##
 
 ### Abstract ###
 
