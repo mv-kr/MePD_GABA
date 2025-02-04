@@ -9,7 +9,7 @@
 - "**combinedMePDv1.m**": file to produce figures depicting the simulations of the MePD model during UCN3 stimulation (Fig. 3(**A**)) and during restraint stress intervention (Fig. 3(**B**))
 - "**supplementary.m**": produce Supplementary Fig. 6 showing the coupled model during control period(**A**), UCN3 stimulation(**B**), GABA suppression(**C**), GABA suppression + UCN3 stimulation (**D**), glutamate suppression (**E**), glutamate suppression + UCN3 stimulation (**F**)
 - "**coupled_simulation.m**": produce simulations in Fig. 4 during UCN3 stimulation (**A**), GABA stimulation (**B**), GABA suppression + UCN3 stimulation (**C**), restraint stress (**D**). Produces the Supplementary Fig. 7 showing long-term behaviour of MePD circuit during the same interventions
-2. Folder "**UCN3**" contains code to produce visualisation of UCN3 calcium data 
+2. Folder "**UCN3 traces**" contains code to produce visualisation of UCN3 calcium data 
 - "**G15stress.csv**": UCN3 calcium traces during restraint stress
 - "**G16stim.csv**": UCN3 calcium traces during UCN3 stimulation 
 - "**UCN3traces.m**": produces visualisation of average UCN3 calcium activity during UCN3 stimulation and restraint stress 
