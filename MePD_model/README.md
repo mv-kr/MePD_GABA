@@ -14,3 +14,6 @@
 - "**G16stim.csv**": UCN3 calcium traces during UCN3 stimulation 
 - "**UCN3traces.m**": produces visualisation of average UCN3 calcium activity during UCN3 stimulation and restraint stress 
 - "**heatmaps.m**": produces visualisation of the heatmaps of the UCN3 calcium activity during UCN3 stimulation and restraint stress 
+
+## Software 
+This is a MATLAB R2024b version code, each simulations is produced within seconds on a standard computer.
