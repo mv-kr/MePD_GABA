@@ -5,74 +5,75 @@ normalize = @(x) (x - min(x)) / (max(x) - min(x));
 % Define indices
 n1 = 1200;
 n2 = 2400;
+base_path = './data/UCN3_stimulation/';
 
 data_paths5HZ = {
-    'Ucn-opsin&GABA-Gcamp/G7 222&223 sti NoRMCorre corrected/G7 222sti/G7 20231110 5hz 222sti.csv',
-    'Ucn-opsin&GABA-Gcamp/G7 222&223 sti NoRMCorre corrected/G7 223sti/G7 20240201 5hz 223sti.csv',
-    'Ucn-opsin&GABA-Gcamp/G8 222&223 sti NoRMCorre corrected/G8 222sti/G8 20231217 5hz 222sti.csv',
-    'Ucn-opsin&GABA-Gcamp/G8 222&223 sti NoRMCorre corrected/G8 223sti/G8 20240202 5hz 223sti.csv',
-    'Ucn-opsin&GABA-Gcamp/G8 222&223 sti NoRMCorre corrected/G8 223sti/G8 20240220 5hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G8 222&223 sti NoRMCorre corrected/G8 223sti/G8 20240301 5hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G9 222&223 sti NoRMCorre corrected/G9 222sti/G9 20231217 5hz 222sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G9 222&223 sti NoRMCorre corrected/G9 223sti/G9 20240202 5hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G9 222&223 sti NoRMCorre corrected/G9 223sti/G9 20240301 5hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G9 222&223 sti NoRMCorre corrected/G9 223sti/G9 20240307 5hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G28 223sti data/G28 20240701 5hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G28 223sti data/G28 20240704 5hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G28 223sti data/G28 20240709 5hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G29 223sti data/G29 20240703 5hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G29 223sti data/G29 20240705 5hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G29 223sti data/G29 20240711 5hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G37 223sti data/G37 5hz 223sti 20240720 A.csv',
-     'Ucn-opsin&GABA-Gcamp/G37 223sti data/G37 5hz 223sti 20240720 B.csv',
-     'Ucn-opsin&GABA-Gcamp/G37 223sti data/G37 5hz 223sti 20240720 C.csv',
-     'Ucn-opsin&GABA-Gcamp/G37 223sti data/G37 5hz 223sti 20240724.csv'
+    'G7 20231110 5hz 222sti.csv',
+    'G7 20240201 5hz 223sti.csv',
+    'G8 20231217 5hz 222sti.csv',
+    'G8 20240202 5hz 223sti.csv',
+    'G8 20240220 5hz 223sti.csv',
+     'G8 20240301 5hz 223sti.csv',
+     'G9 20231217 5hz 222sti.csv',
+     'G9 20240202 5hz 223sti.csv',
+     'G9 20240301 5hz 223sti.csv',
+     'G9 20240307 5hz 223sti.csv',
+     'G28 20240701 5hz 223sti.csv',
+     'G28 20240704 5hz 223sti.csv',
+     'G28 20240709 5hz 223sti.csv',
+     'G29 20240703 5hz 223sti.csv',
+     'G29 20240705 5hz 223sti.csv',
+     'G29 20240711 5hz 223sti.csv',
+     'G37 5hz 223sti 20240720 A.csv',
+     'G37 5hz 223sti 20240720 B.csv',
+     'G37 5hz 223sti 20240720 C.csv',
+     'G37 5hz 223sti 20240724.csv'
     };
 
 data_paths10HZ = {
-    'Ucn-opsin&GABA-Gcamp/G7 222&223 sti NoRMCorre corrected/G7 222sti/G7 20231110 10hz 222sti.csv',
-    'Ucn-opsin&GABA-Gcamp/G7 222&223 sti NoRMCorre corrected/G7 223sti/G7 20240201 10hz 223sti.csv',
-    'Ucn-opsin&GABA-Gcamp/G8 222&223 sti NoRMCorre corrected/G8 222sti/G8 20231218 10hz 222sti.csv',
-    'Ucn-opsin&GABA-Gcamp/G8 222&223 sti NoRMCorre corrected/G8 223sti/G8 20240202 10hz 223sti.csv',
-    'Ucn-opsin&GABA-Gcamp/G8 222&223 sti NoRMCorre corrected/G8 223sti/G8 20240220 10hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G8 222&223 sti NoRMCorre corrected/G8 223sti/G8 20240301 10hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G9 222&223 sti NoRMCorre corrected/G9 222sti/G9 20231218 10hz 222sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G9 222&223 sti NoRMCorre corrected/G9 223sti/G9 20240202 10hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G9 222&223 sti NoRMCorre corrected/G9 223sti/G9 20240228 10hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G9 222&223 sti NoRMCorre corrected/G9 223sti/G9 20240307 10hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G28 223sti data/G28 20240701 10hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G28 223sti data/G28 20240704 10hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G28 223sti data/G28 20240709 10hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G29 223sti data/G29 20240703 10hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G29 223sti data/G29 20240705 10hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G29 223sti data/G29 20240711 10hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G37 223sti data/G37 10hz 223sti 20240720 A.csv',
-     'Ucn-opsin&GABA-Gcamp/G37 223sti data/G37 10hz 223sti 20240720 B.csv',
-     'Ucn-opsin&GABA-Gcamp/G37 223sti data/G37 10hz 223sti 20240721 A.csv',
-     'Ucn-opsin&GABA-Gcamp/G37 223sti data/G37 10hz 223sti 20240721 B.csv'
+    'G7 20231110 10hz 222sti.csv',
+    'G7 20240201 10hz 223sti.csv',
+    'G8 20231218 10hz 222sti.csv',
+    'G8 20240202 10hz 223sti.csv',
+    'G8 20240220 10hz 223sti.csv',
+     'G8 20240301 10hz 223sti.csv',
+     'G9 20231218 10hz 222sti.csv',
+     'G9 20240202 10hz 223sti.csv',
+     'G9 20240228 10hz 223sti.csv',
+     'G9 20240307 10hz 223sti.csv',
+     'G28 20240701 10hz 223sti.csv',
+     'G28 20240704 10hz 223sti.csv',
+     'G28 20240709 10hz 223sti.csv',
+     'G29 20240703 10hz 223sti.csv',
+     'G29 20240705 10hz 223sti.csv',
+     'G29 20240711 10hz 223sti.csv',
+     'G37 10hz 223sti 20240720 A.csv',
+     'G37 10hz 223sti 20240720 B.csv',
+     'G37 10hz 223sti 20240721 A.csv',
+     'G37 10hz 223sti 20240721 B.csv'
     };
 
 data_paths20HZ = {
-    'Ucn-opsin&GABA-Gcamp/G7 222&223 sti NoRMCorre corrected/G7 222sti/G7 20231110 20hz 222sti.csv',
-    'Ucn-opsin&GABA-Gcamp/G7 222&223 sti NoRMCorre corrected/G7 223sti/G7 20240202 20hz 223sti.csv',
-    'Ucn-opsin&GABA-Gcamp/G8 222&223 sti NoRMCorre corrected/G8 222sti/G8 20231217 20hz 222sti.csv',
-    'Ucn-opsin&GABA-Gcamp/G8 222&223 sti NoRMCorre corrected/G8 223sti/G8 20240202 20hz 223sti.csv',
-    'Ucn-opsin&GABA-Gcamp/G8 222&223 sti NoRMCorre corrected/G8 223sti/G8 20240220 20hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G8 222&223 sti NoRMCorre corrected/G8 223sti/G8 20240301 20hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G9 222&223 sti NoRMCorre corrected/G9 222sti/G9 20231217 20hz 222sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G9 222&223 sti NoRMCorre corrected/G9 223sti/G9 20240202 20hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G9 222&223 sti NoRMCorre corrected/G9 223sti/G9 20240221 20hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G9 222&223 sti NoRMCorre corrected/G9 223sti/G9 20240307 20hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G28 223sti data/G28 20240701 20hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G28 223sti data/G28 20240704 20hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G28 223sti data/G28 20240709 20hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G29 223sti data/G29 20240703 20hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G29 223sti data/G29 20240705 20hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G29 223sti data/G29 20240711 20hz 223sti.csv',
-     'Ucn-opsin&GABA-Gcamp/G37 223sti data/G37 20hz 223sti 20240720 A.csv',
-     'Ucn-opsin&GABA-Gcamp/G37 223sti data/G37 20hz 223sti 20240720 B.csv',
-     'Ucn-opsin&GABA-Gcamp/G37 223sti data/G37 20hz 223sti 20240721 A.csv',
-     'Ucn-opsin&GABA-Gcamp/G37 223sti data/G37 20hz 223sti 20240721 B.csv'
+    'G7 20231110 20hz 222sti.csv',
+    'G7 20240202 20hz 223sti.csv',
+    'G8 20231217 20hz 222sti.csv',
+    'G8 20240202 20hz 223sti.csv',
+    'G8 20240220 20hz 223sti.csv',
+     'G8 20240301 20hz 223sti.csv',
+     'G9 20231217 20hz 222sti.csv',
+     'G9 20240202 20hz 223sti.csv',
+     'G9 20240221 20hz 223sti.csv',
+     'G9 20240307 20hz 223sti.csv',
+     'G28 20240701 20hz 223sti.csv',
+     'G28 20240704 20hz 223sti.csv',
+     'G28 20240709 20hz 223sti.csv',
+     'G29 20240703 20hz 223sti.csv',
+     'G29 20240705 20hz 223sti.csv',
+     'G29 20240711 20hz 223sti.csv',
+     'G37 20hz 223sti 20240720 A.csv',
+     'G37 20hz 223sti 20240720 B.csv',
+     'G37 20hz 223sti 20240721 A.csv',
+     'G37 20hz 223sti 20240721 B.csv'
     };
 
 paths = [data_paths5HZ; data_paths10HZ; data_paths20HZ];
@@ -82,7 +83,7 @@ len_dat = length(paths);
 A = zeros(1,len_dat);
 for j=1:len_dat
     % load data file
-    filename =  paths{j};
+    filename =  [base_path paths{j}];
     opts = detectImportOptions(filename);
     opts = setvartype(opts, 'double'); % ensure all data are treated as numeric
     calcium = readtable(filename, opts);
