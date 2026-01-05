@@ -1,17 +1,17 @@
 clc; clearvars; close all; 
-T = readmatrix('newdata.xlsx','Sheet', 2);
-ConFoff_before = T(1,2:7);
-ConFoff_after = T(1,10:end);
+T = readmatrix('source_data_file.xlsx','Sheet', 6);
+ChR_before = T(1,2:6);
+ChR_after = T(1,10:end);
 
-nostim_before = T(2,2:7);
+nostim_before = T(2,2:6);
 nostim_after = T(2,10:end);
 
-ctrl_before = T(3,2:7);
+ctrl_before = T(3,2:6);
 ctrl_after = T(3,10:end);
 
 % Group data into a matrix: rows = groups, columns = subjects
 data = {
-    ConFoff_before, ConFoff_after;
+    ChR_before, ChR_after;
     nostim_before,  nostim_after;
     ctrl_before,    ctrl_after
 };
@@ -99,7 +99,7 @@ for g = 1:ngroups
     for b = 1:nbars
         if ~(g == 1 && b == 2)  % skip only second bar in group 1
             xPos = g - groupwidth/2 + (2*b - 1) * groupwidth / (2*nbars);
-            yPos = means(g,b) + sems(g,b) + 4; % higher above error bar
+            yPos = means(g,b) + sems(g,b) + 18; % higher above error bar
             text(xPos, yPos, '#', 'FontSize', 25, ...
                  'HorizontalAlignment', 'center', 'VerticalAlignment', 'bottom');
         end
@@ -107,10 +107,10 @@ for g = 1:ngroups
 end
 
 % Labels
-set(gca, 'XTickLabel', {'ConFoff', 'control', 'no stim.'});
+set(gca, 'XTickLabel', {'ChR', 'no stim.', 'control'});
 ylabel('LH IPI [min]');
-yticks([0 10 20 30]);
-yticklabels({'0', '10', '20', '30'});
-ylim([0 45])
+yticks([0 20 40 60 80]);
+yticklabels({'0', '20', '40', '60', '80'});
+ylim([0 100])
 box off;
-saveas(f, 'fig5D.svg')
+saveas(f, 'fig6D.svg')
