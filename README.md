@@ -1,6 +1,6 @@
 This repository consists of the code for data analysis and computational modelling carried out in the manuscript:
 
-## GABA Neurons in the Amygdala play a central Role in Urocortin-3–Mediated Stress Suppression of Reproduction ##
+## Amygdala GABA Neurons: Gatekeepers of Stress and Reproduction in Female Mice  ##
 
 ### Abstract ###
 
