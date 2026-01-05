@@ -8,3 +8,5 @@ This folder contains single-cell recordings processed using Inscopix Data Proces
 
 - **control/**  
   Control experiment involving mice with UCN3 neurons expressing mCherry and GABA neurons expressing GCaMP.
+
+Furthermore **/cor_matrices/** Functional connectivity matrices
