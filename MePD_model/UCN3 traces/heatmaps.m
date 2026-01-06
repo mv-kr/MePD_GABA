@@ -23,9 +23,10 @@ hold on;
 set(gca, 'FontSize', 16, 'FontName', 'DejaVu Sans'); % set axis font properties
 
 % plot heatmap of normalized activity
-temp = pcolor(normalized_activity');
+imagesc(normalized_activity');
 shading interp;
-colormap('jet');
+cmap = viridis(256);
+colormap(cmap)
 
 % configure colorbar settings
 c = colorbar('Location', 'northoutside', 'FontName', 'DejaVu Sans', 'FontSize', 16);
@@ -43,6 +44,8 @@ set(gcf, 'Renderer', 'Painters');
 
 % save figure
 % saveas(f, 'heatstim.svg');
+print(f, 'heatstim.tiff', '-dtiff', '-r600');
+
 
 %% clear workspace and process stress data
 clearvars; clc;
@@ -62,14 +65,16 @@ normalized_activity = (activity_columns - min(activity_columns)) ./ ...
 %% plot stress data as a heatmap
 f = figure(2); clf;
 f.Units = "centimeters";
-f.InnerPosition = [20 10 23.6 5]; % set figure size
+f.InnerPosition = [20 10 23.4 5]; % set figure size
 hold on;
 set(gca, 'FontSize', 16, 'FontName', 'DejaVu Sans'); % set axis font properties
 
 % plot heatmap of normalized activity
-temp = pcolor(normalized_activity');
-shading interp;
-colormap('jet');
+imagesc(normalized_activity');
+colormap(gca, viridis(256));
+caxis([0 1]); 
+
+
 
 % configure colorbar settings
 c = colorbar('Location', 'northoutside', 'FontName', 'DejaVu Sans', 'FontSize', 16);
